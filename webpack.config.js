@@ -18,6 +18,14 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         },
+        resolve: {
+          extensions: ['.js', '.json', '.jsx'],
+          alias: {
+            Components: path.join(__dirname, '.', 'src', 'js', 'components'),
+            Actions: path.join(__dirname, '.', 'src', 'js', 'store', 'actions'),
+            Reducers: path.join(__dirname, '.', 'src', 'js', 'store', 'reducers')
+          }
+        }
       },
       {
         test: /\.(scss|css)$/,
@@ -34,6 +42,10 @@ module.exports = {
           },
       }, 
       'sass-loader']
+      },
+      {
+        test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
+        use: 'file-loader'
       }
     ]
   },
